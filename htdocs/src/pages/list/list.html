@@ -1,0 +1,69 @@
+<!--
+  Generated template for the List page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Liste des auteurs</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h1>Auteurs</h1>
+
+  <button ion-button (click)="new()">
+      Ajouter auteur
+  </button>
+
+<!--boucle parcourant le tableau “auteurs” (voir list.ts) afin d’afficher la liste d’auteurs-->
+<!--la liste ne s’affiche que si le formulaire est inactif-->
+  <ion-item *ngFor="let auteur of auteurs" [hidden]="formActive">
+    <div *ngFor="let thing of auteur">
+          <div>Nom: {{thing.nom}}</div>
+          <div>Prénom: {{thing.prenom}}</div>
+          <div>Email: {{thing.email}}</div>
+          <!--ajout de deux bouton pour chaque auteur de la liste-->
+          <button ion-button color="primary" (click)="edit(thing)">
+            Modifier
+          </button>
+          <button ion-button color="danger" (click)="remove(thing.id)">
+            Supprimer
+          </button>
+    </div>
+  </ion-item>
+
+  <!--formulaire s’affichant uniquement quand on clique sur “modifier”-->
+  <form [formGroup]="modifyautorForm" (ngSubmit)="add()" *ngIf="formActive">
+    <ion-list>
+      <ion-item>
+            <ion-label floating>Nom</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Prénom</ion-label>
+            <ion-input type="text" formControlName="surname"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+          </ion-item>
+    </ion-list>
+
+    <button ion-button type="submit">
+      Enregistrer
+    </button>
+  </form>
+
+  <button ion-button color="danger" (click)="cancel()" *ngIf="formActive">
+    Annuler
+  </button>
+
+</ion-content>

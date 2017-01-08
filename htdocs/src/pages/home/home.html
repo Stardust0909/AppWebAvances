@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Application auteurs
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Nom</ion-label>
+        <ion-input type="text" [(ngModel)]="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Prénom</ion-label>
+        <ion-input type="text" [(ngModel)]="surname"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" [(ngModel)]="email"></ion-input>
+      </ion-item>
+  
+    </ion-list>
+
+    <!--quand on clique sur le bouton, appelle la fonction “add” et envoie les inputs en paramètre-->
+    <button ion-button (click)="add(name,surname,email)">
+      Ajouter
+    </button>
+
+</ion-content>

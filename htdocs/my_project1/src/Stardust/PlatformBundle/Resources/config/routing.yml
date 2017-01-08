@@ -1,0 +1,6 @@
+stardust_platform_homepage:
+    path:     /
+    defaults: { _controller: StardustPlatformBundle:Default:index }
+hello_the_world:
+    path:     /hello-world
+    defaults: { _controller: StardustPlatformBundle:Advert:index }

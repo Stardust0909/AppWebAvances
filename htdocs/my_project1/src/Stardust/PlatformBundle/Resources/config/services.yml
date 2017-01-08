@@ -1,0 +1,4 @@
+services:
+#    stardust_platform.example:
+#        class: Stardust\PlatformBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
